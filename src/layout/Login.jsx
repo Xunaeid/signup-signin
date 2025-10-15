@@ -7,7 +7,7 @@ import { authContext } from './Root';
 
 const Login = () => {
 
-	const {loginContext} = useContext(authContext)
+	const {loginContext, handleLogout} = useContext(authContext)
 
     const handleLogin = (e) => {
 		e.preventDefault()
@@ -77,6 +77,7 @@ const Login = () => {
 			</div>
 		</div>
 		<button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">Sign in</button>
+<button  onClick={handleLogout} className="w-full px-8 py-3 font-semibold rounded-md dark:bg-amber-600 dark:text-gray-50">Logout</button>
 	</form>
 </div>
         </div>
