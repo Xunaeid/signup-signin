@@ -9,7 +9,7 @@ const SignUp = () => {
   const [strength, setStrength] = useState("");
   const [run, setRun] = useState("go run");
 
-
+console.log(feedback)
     const handleSignUp = e => {
       
         e.preventDefault()
@@ -73,7 +73,8 @@ const SignUp = () => {
           <input type="email" name='email' className="input" placeholder="Email" />
           <label className="label">Password</label>
           <input type="password" name='password' className="input" placeholder="Password" />
-          <div><a className="link link-hover">Forgot password? </a> <p className='mt-2 text-sm'> { [strength ,` ${strength && "password"}  `, feedback] }  </p></div>
+          <div className='flex '><p className="link link-hover">Forgot password? </p> <p className='flex justify-end'> {[strength, ` ${strength && "strength"}  `]} </p> </div>
+          <p className='mt-2 text-sm'> { feedback[0] }  </p>
           <button className="btn btn-neutral mt-4">Sign up</button>
         </form>
       </div>
