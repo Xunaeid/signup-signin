@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import React, { createContext } from 'react';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { createContext, useEffect } from 'react';
 import { Outlet } from 'react-router';
 import { auth } from '../firebase.init';
 
@@ -21,6 +21,15 @@ const values={
     signUpContext,
     loginContext
 }
+
+useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+         console.log(user)
+        } 
+      });
+},[])
+
     return (
         <div className='flex justify-center items-center h-[100vh]'>
             <authContext.Provider value={values} >
